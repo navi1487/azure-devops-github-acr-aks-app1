@@ -14,7 +14,7 @@ variables:
   imageRepository: 'app1dev'
   containerRegistry: 'aksdemo1.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tag: 'app1dev_nginx_$(Build.BuildId)'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
