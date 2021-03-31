@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: app1-nginx
-          image: aksdemo1.azurecr.io/appnginx
+          image: aksdemo1.azurecr.io/appnginx_$(Build.BuildId)
           ports:
             - containerPort: 80
 ---
