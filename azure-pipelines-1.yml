@@ -39,7 +39,7 @@ stages:
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
-          appnginx_$(tag)
+          $(tag)
 
     - upload: manifests
       artifact: manifests
