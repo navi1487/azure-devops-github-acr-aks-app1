@@ -40,11 +40,16 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-
+## Publish Artifacts pipeline code in addition to Build and Push    
     - task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)/kube-manifests)'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    OverWrite: true
-    # Task-3: Publish build artifacts (Publish build to Azure Pipelines)  
+      inputs:
+        SourceFolder: '''$(System.DefaultWorkingDirectory)/kube-manifests'''
+        Contents: '**'
+        TargetFolder: '''$(Build.ArtifactStagingDirectory)'''
+        OverWrite: true
+# Task-3: Publish build artifacts (Publish build to Azure Pipelines)  
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'kube-manifests'
+        publishLocation: 'Container'
