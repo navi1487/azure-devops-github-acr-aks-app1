@@ -48,9 +48,3 @@ stages:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     OverWrite: true
     # Task-3: Publish build artifacts (Publish build to Azure Pipelines)  
-
--   task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'kube-manifests'
-    publishLocation: 'Container'
